@@ -1,0 +1,24 @@
+{
+  "name": "testcypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosmegaOE/testCypress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosmegaOE/testCypress/issues"
+  },
+  "homepage": "https://github.com/carlosmegaOE/testCypress#readme",
+  "devDependencies": {
+    "cypress": "^10.9.0"
+  }
+}
