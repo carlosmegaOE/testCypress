@@ -24,19 +24,15 @@ describe('Fast Flow to Purchase', () => {
         cy.get('.mt-6 > .mt-10 > .flex').click()
         cy.wait(3000)
         cy.get('.absolute > .flex').click()
+        cy.wait(2000)
         //Doubt - I only can access the cart page if I click in the icon on top ?
     })
 
-    it('Cart page add +1 QTY of the product', () => {
+    it('Cart page', () => {
         // cy.url().should("contain", '/cart')
         cy.get('.mt-12 > .font-work-sans').contains('Shopping Cart')
         cy.wait(3000)
-        cy.get('.rounded-r > .m-auto').click()
-        cy.wait(3000)
-        cy.get(':nth-child(2) > .relative > .flex').contains('3')
-        cy.wait(3000)
-        cy.get(':nth-child(3) > .border-transparent').submit()
-        cy.wait(3000)
+        cy.get(':nth-child(3) > .border-transparent').click()
 
 
     })
@@ -51,30 +47,32 @@ describe('Fast Flow to Purchase', () => {
     it('Typed the fields in Shipping Page', () => {
         cy.typedFieldsCustomer();
         cy.typedFieldsShipping(); //bug in city , check // bug in radio buttons //bug in message in Shipping
+        cy.wait(4000)
     })
 
     it('Go to Overview', () => {
-        cy.get('form').submit()
-        // cy.get('.rounded-lg > :nth-child(4) > .font-lato').click()
+        cy.get('.rounded-lg > :nth-child(4) > .font-lato').click()
+        cy.wait(2000)
     })
 
-    // it('Review my Information', () => {
-    //     // cy.get('.mb-10').contains("Review")
-    //     cy.get(':nth-child(1) > .pt-3').contains( 'Carlos Mega')
-    //     cy.get('.flex > :nth-child(1) > :nth-child(3)').contains( 'Rua São Clemente, Rio de Janeiro')
-    //     cy.get('.flex > :nth-child(1) > :nth-child(4)').contains('22260009')
-    //     //bug in values Review Order and signal
-    // })
+    it('Review my Information', () => {
+        // cy.get('.mb-10').contains("Review")
+        cy.get(':nth-child(1) > .pt-3').contains( 'Carlos Mega')
+        cy.get('.flex > :nth-child(1) > :nth-child(3)').contains( 'Rua Sao Clemente, S')
+        cy.get('.flex > :nth-child(1) > :nth-child(4)').contains('22260009')
+        //bug in values Review Order and signal
+    })
 
 
-    // it('Click on Place Order', () => {
-    //     cy.get('.rounded-lg > :nth-child(4) > .font-lato').click()
-    //     //bug in values Review Order and signal
-    // })
+    it('Click on Place Order', () => {
+        cy.get('.rounded-lg > :nth-child(4) > .font-lato').click()
+    })
 
-    // it('Review Order Information', () => {
-    //     cy.get('.flex > :nth-child(1) > :nth-child(4)').contains('€').should('not.exist')
-    //     //bug in values Review Order and signal
-    // })
+    it('Payment', () => {
+        cy.wait(6000)
+        cy.get('.adyen-checkout__field--cardNumber > .adyen-checkout__label > .adyen-checkout__input-wrapper > .adyen-checkout__input > .js-iframe').should('exist')
+        cy.get('.space-5 > :nth-child(1) > .font-medium').contains('€').should('not.exist')
+        
+    })
 
 })

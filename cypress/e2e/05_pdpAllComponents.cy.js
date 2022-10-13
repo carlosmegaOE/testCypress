@@ -6,10 +6,10 @@ describe('PDP test components', () => {
 
     it('Test Quantity button - PDP', () => {
         //State Transition Testing /Self-cleaning return for initial value
-        cy.get('.border-neutral-200 > :nth-child(2)').click()
+       cy.get('.border-neutral-200 > :nth-child(3)').click()
         cy.wait(1000)
         cy.get('.mt-10 > .border-neutral-200').contains('2')
-        cy.get('.border-neutral-200 > :nth-child(2)').dblclick()
+       cy.get('.border-neutral-200 > :nth-child(3)').dblclick()
         cy.get('.mt-10 > .border-neutral-200').contains('4')
 
         cy.get('.border-neutral-200 > :nth-child(1)').click()
@@ -25,16 +25,18 @@ describe('PDP test components', () => {
     })
 
     it('text', () => {
-        cy.get('.overflow-hidden > p').click()
+        cy.get(':nth-child(4) > .mt-2').click()
         cy.wait(1000)
-        cy.get(':nth-child(4) > .font-lato > p').click()
+        cy.get(':nth-child(4) > .mt-2').contains('See less')
+        cy.get(':nth-child(4) > .mt-2').click()
         cy.wait(1000)
+        cy.get(':nth-child(4) > .mt-2').contains('See more')
         // cy.get(':nth-child(4)').should("be.not.visible")
         // cy.get(':nth-child(4)>.font-lato > p').should('not.exist')
        
     })
 
-    it('Open LogikIO', () => {
+    it.skip('Open LogikIO', () => {
         cy.get('.pb-24 > .p-3').click()
         cy.wait(2000)
         // cy.get('.fixed > .bg-red-500').click()
