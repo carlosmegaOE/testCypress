@@ -113,7 +113,7 @@ Cypress.Commands.add('typedFieldsCustomer', () => {
 
 Cypress.Commands.add('typedFieldsShipping', () => {
     cy.get('#shipping-street-name').type(Cypress.env('shipping-street-name'))
-    cy.get('#shipping-postalCode').type(Cypress.env('shipping-postalCode'))
     cy.get('#shipping-city').type(Cypress.env('shipping-city'));
-
+    cy.get('#shipping-postalCode').type(Cypress.env('shipping-postalCode'))
+    cy.wait(4000)
 })

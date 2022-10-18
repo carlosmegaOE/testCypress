@@ -5,6 +5,19 @@ describe('Fast Flow to Purchase', () => {
         cy.accessPOC()
     })
 
+    it('login', () => {
+        cy.visit('https://poc-objectedge.frontend.site/')
+        cy.get('.text-gray-700 > .h-6').click()
+        cy.wait(2000)
+        cy.url().should("contain", '/login')
+        cy.get('.min-h-full > :nth-child(1) > .mt-6').contains('Sign in to your account')
+        cy.get('#email').type("carlos.mega@objectedge.com")
+        cy.get('#password').type("123456789")
+        cy.get('.space-y-6 > :nth-child(4) > .flex').click()
+        cy.wait(2000)
+        cy.get('.h-16 > .transition-300').click()
+    })
+
     it('Click on btn of hero image', () => {
         cy.get('.absolute > .flex > .font-lato').click()
         cy.wait(1000)
@@ -25,7 +38,6 @@ describe('Fast Flow to Purchase', () => {
         cy.wait(3000)
         cy.get('.absolute > .flex').click()
         cy.wait(2000)
-        //Doubt - I only can access the cart page if I click in the icon on top ?
     })
 
     it('Cart page', () => {
@@ -47,7 +59,7 @@ describe('Fast Flow to Purchase', () => {
     it('Typed the fields in Shipping Page', () => {
         cy.typedFieldsCustomer();
         cy.typedFieldsShipping(); //bug in city , check // bug in radio buttons //bug in message in Shipping
-        cy.wait(4000)
+        // cy.wait(4000)
     })
 
     it('Go to Overview', () => {
