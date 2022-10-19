@@ -30,7 +30,7 @@ describe('Fast Flow to Purchase', () => {
         cy.get('.text-lg').contains('Password')
     });
 
-    // bug? I couldn't update password with the script, maybe a security in this field?
+    // bug? I couldn't update password with the script, maybe a security
     it.skip('ChangePassword_1', () => {
         cy.get('#old-password').type('123456789')
         cy.get('#password').type('987654321')
