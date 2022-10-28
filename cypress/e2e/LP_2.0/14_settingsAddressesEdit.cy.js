@@ -33,11 +33,11 @@ describe('Fast Flow to Purchase', () => {
 
         cy.get('.relative > :nth-child(1) > .text-3xl').contains('Update Address')
         cy.get('#street-name').type('testeStreet')
-        cy.get('#city').type('testCity')
+        cy.get('#city').type('testCity').type('{enter}')
 
-        cy.get('.flex > .bg-accent-400').click()
-
-        //bug? When I finish filling and proceed, log out. I can do it manually
+        cy.wait(3000)
+ 
+//Logout when I enter to change address ? It's a bug ?
     });
 
 

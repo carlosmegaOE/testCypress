@@ -45,7 +45,8 @@ Cypress.Commands.add('accessSecureCheckout', () => {
 
     cy.get(':nth-child(3) > .border-transparent').click()
     cy.wait(2000)
-    cy.get('.mb-10').should('exist')
+    cy.url().should('eq', 'https://poc-objectedge.frontend.site/checkout')
+    // cy.get('.mb-10').should('exist')
 })
 
 Cypress.Commands.add('accessOverview', () => {
@@ -55,9 +56,6 @@ Cypress.Commands.add('accessOverview', () => {
     cy.typedFieldsShipping();
     cy.wait(2000)
 
-    cy.wait(2000)
-    cy.get('.rounded-lg > :nth-child(4) > .font-lato').click()
-    cy.wait(2000)
     //Check city field , if will delete aut. after type
 })
 
@@ -107,13 +105,14 @@ Cypress.Commands.add('successfulRegistration', () => {
 Cypress.Commands.add('typedFieldsCustomer', () => {
     cy.get('#firstName').type(Cypress.env('firstName'))
     cy.get('#lastName').type(Cypress.env('lastName'))
-    cy.get('#email').type(Cypress.env('email'));
-    cy.get('#phone').type(Cypress.env('phone'));
+    cy.get('#emailAddress').type(Cypress.env('email'));
+    cy.get('#streetNumber').type('123t');
+    // cy.get('#phone').type(Cypress.env('phone'));
 })
 
 Cypress.Commands.add('typedFieldsShipping', () => {
-    cy.get('#shipping-street-name').type(Cypress.env('shipping-street-name'))
-    cy.get('#shipping-city').type(Cypress.env('shipping-city'));
-    cy.get('#shipping-postalCode').type(Cypress.env('shipping-postalCode'))
+    cy.get('#streetName').type(Cypress.env('shipping-street-name'))
+    cy.get('#city').type(Cypress.env('shipping-city'));
+    cy.get('#postalCode').type(Cypress.env('shipping-postalCode'))
     cy.wait(4000)
 })

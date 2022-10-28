@@ -57,6 +57,3 @@ describe('Mobile homepage Tests', () => {
    
     })
   })
-
-
-  // Testar Search barin this mode and other components
