@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/carlosmegaOE/testCypress#readme",
   "devDependencies": {
-    "cypress": "^10.10.0"
+    "cypress": "^11.1.0"
   }
 }

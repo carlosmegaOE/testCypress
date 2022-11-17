@@ -4,7 +4,6 @@ Cypress.Commands.add('accessPOC', () => {
 })
 
 Cypress.Commands.add('accessPDP', () => {
-    cy.visit('https://poc-objectedge.frontend.site/')
     cy.get('.absolute > .flex > .font-lato').click()
     cy.wait(2000)
     cy.url().should('eq', 'https://poc-objectedge.frontend.site/bikes')
@@ -12,13 +11,11 @@ Cypress.Commands.add('accessPDP', () => {
 })
 
 Cypress.Commands.add('accessPLP', () => {
-    cy.visit('https://poc-objectedge.frontend.site/')
     cy.get('.absolute > .flex > .font-lato').click()
     cy.wait(2000)
 })
 
 Cypress.Commands.add('accessCart', () => {
-    cy.visit('https://poc-objectedge.frontend.site/')
     cy.get('.absolute > .flex > .font-lato').click()
     cy.wait(2000)
     cy.url().should('eq', 'https://poc-objectedge.frontend.site/bikes')
@@ -31,15 +28,14 @@ Cypress.Commands.add('accessCart', () => {
 })
 
 Cypress.Commands.add('accessSecureCheckout', () => {
-    cy.visit('https://poc-objectedge.frontend.site/')
     cy.clearCookies()
-    cy.get('.absolute > .flex > .font-lato').click()
+    cy.get('[href="/hybrid-bike"]').click()
     cy.wait(2000)
-    cy.url().should('eq', 'https://poc-objectedge.frontend.site/bikes')
-    cy.get(':nth-child(1) > .p-4 > :nth-child(2) > .font-lato').click()
-    cy.get('.mt-6 > .mt-10 > .flex').click()
+    cy.url().should('eq', 'https://poc-objectedge.frontend.site/hybrid-bike')
+    cy.get(':nth-child(1) > .align-center > :nth-child(2) > .font-lato').click()
+    cy.get('.mt-6 > .mt-10 > .flex').click() // button Add to cart
     cy.wait(3000)
-    cy.get('.absolute > .flex').click()
+    cy.get('.absolute > .flex').click()  // button icon Cart
     cy.wait(2000)
     cy.get('.mt-12 > .font-work-sans').should('exist')
 
@@ -114,5 +110,4 @@ Cypress.Commands.add('typedFieldsShipping', () => {
     cy.get('#streetName').type(Cypress.env('shipping-street-name'))
     cy.get('#city').type(Cypress.env('shipping-city'));
     cy.get('#postalCode').type(Cypress.env('shipping-postalCode'))
-    cy.wait(4000)
 })

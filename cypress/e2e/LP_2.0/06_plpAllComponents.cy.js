@@ -1,5 +1,8 @@
+
+
+
 describe('PLP test components', () => {
-    it('Access Page', () => {
+    it('PLP components in the page', () => {
         cy.accessPOC()
         cy.accessPLP()
     })
